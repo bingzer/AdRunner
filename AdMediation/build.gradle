@@ -28,7 +28,7 @@ android {
     }
 }
 
-archivesBaseName = 'DbQuery'
+archivesBaseName = 'AdMediation'
 group = "com.bingzer.android"
 version = getVersionName()
 android.defaultConfig.versionCode = getVersionCode()
