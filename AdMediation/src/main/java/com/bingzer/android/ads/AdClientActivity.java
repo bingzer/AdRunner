@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 
-import com.bingzer.android.Result;
-
 /**
  * Activity add ads
  * Created by 11856 on 7/11/13.

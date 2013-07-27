@@ -1,10 +1,10 @@
-package com.bingzer.android.ads.networks;
+package com.bingzer.android.ads;
 
 import android.content.Context;
 import android.view.View;
 
-import com.bingzer.android.Range;
 import com.bingzer.android.ads.IAdNetwork;
+import com.bingzer.android.ads.Range;
 
 abstract class AbsAdNetwork<T extends View> implements IAdNetwork {
 

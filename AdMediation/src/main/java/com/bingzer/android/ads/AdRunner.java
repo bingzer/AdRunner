@@ -1,8 +1,5 @@
 package com.bingzer.android.ads;
 
-import com.bingzer.android.Helper;
-import com.bingzer.android.Result;
-
 import android.view.View;
 
 class AdRunner implements IAdRunner {

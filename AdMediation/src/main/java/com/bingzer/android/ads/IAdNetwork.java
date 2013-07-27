@@ -1,7 +1,5 @@
 package com.bingzer.android.ads;
 
-import com.bingzer.android.Range;
-import com.bingzer.android.Result;
 
 import android.content.Context;
 import android.view.View;

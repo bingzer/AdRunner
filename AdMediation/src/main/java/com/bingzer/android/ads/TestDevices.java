@@ -1,7 +1,5 @@
 package com.bingzer.android.ads;
 
-import com.google.ads.AdRequest;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -24,7 +22,7 @@ public class TestDevices {
     /**
      * Emulator
      */
-    public static final String TEST_EMULATOR = AdRequest.TEST_EMULATOR;
+    public static final String TEST_EMULATOR = "EMULATOR"; // AdRequest.TEST_EMULATOR;
 
     /**
      * Motorola Atrix 2

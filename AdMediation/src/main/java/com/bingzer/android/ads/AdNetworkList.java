@@ -3,9 +3,6 @@ package com.bingzer.android.ads;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.bingzer.android.Helper;
-import com.bingzer.android.Range;
-
 public class AdNetworkList {
 
     private final List<IAdNetwork> list = new LinkedList<IAdNetwork>();

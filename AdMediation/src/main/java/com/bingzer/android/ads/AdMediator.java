@@ -3,10 +3,9 @@ package com.bingzer.android.ads;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.bingzer.android.Result;
-import com.bingzer.android.app.AndroidApp;
-
 public class AdMediator implements Thread.UncaughtExceptionHandler {
+    static final String TAG = "AdMediator";
+
     public static final int MAX_FAIL_COUNT = 5;
 
     private static AdMediator mediator;
@@ -68,13 +67,13 @@ public class AdMediator implements Thread.UncaughtExceptionHandler {
 
     @Override
     public void uncaughtException(Thread thread, Throwable ex) {
-        AndroidApp.e("Uncaught Exception from " + thread.getName(), ex);
+        android.util.Log.e(TAG, "Uncaught Exception from " + thread.getName(), ex);
     }
 
 
     /////////////////////////////////////////////////////////////////////////
     void log(String format, Object... args) {
-        AndroidApp.l("AdMediator: " + String.format(format, args));
+        android.util.Log.e(TAG, "AdMediator: " + String.format(format, args));
     }
 
 
