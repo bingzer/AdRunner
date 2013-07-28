@@ -1,1 +1,1 @@
-include ':AdMediation', ':AdMob'
+include ':AdMediation', ':networks:admob'

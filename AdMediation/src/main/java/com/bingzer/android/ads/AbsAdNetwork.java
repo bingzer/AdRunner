@@ -6,7 +6,7 @@ import android.view.View;
 import com.bingzer.android.ads.IAdNetwork;
 import com.bingzer.android.ads.Range;
 
-abstract class AbsAdNetwork<T extends View> implements IAdNetwork {
+public abstract class AbsAdNetwork<T extends View> implements IAdNetwork {
 
     boolean enabled = true;
     Range range = new Range();
