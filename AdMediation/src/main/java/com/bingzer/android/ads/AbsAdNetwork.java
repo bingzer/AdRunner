@@ -8,11 +8,11 @@ import com.bingzer.android.ads.Range;
 
 public abstract class AbsAdNetwork<T extends View> implements IAdNetwork {
 
-    boolean enabled = true;
-    Range range = new Range();
-    String pubId;
-    Callback callback;
-    T adView;
+    protected boolean enabled = true;
+    protected Range range = new Range();
+    protected String pubId;
+    protected Callback callback;
+    protected T adView;
 
     @Override
     public IAdNetwork enable(boolean enabled) {
