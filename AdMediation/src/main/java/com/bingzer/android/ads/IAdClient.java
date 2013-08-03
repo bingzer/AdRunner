@@ -7,7 +7,7 @@ import android.content.Context;
  * This should be implemented in inside an activity
  * where you would like to display the ad
  *
- * @author 11856
+ * @author Ricky Tobing
  */
 public interface IAdClient extends IAdNetwork.Callback {
 

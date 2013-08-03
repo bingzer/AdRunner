@@ -7,7 +7,7 @@ import android.view.View;
 /**
  * Represents an ad network
  *
- * @author 11856
+ * @author Ricky Tobing
  */
 public interface IAdNetwork {
 

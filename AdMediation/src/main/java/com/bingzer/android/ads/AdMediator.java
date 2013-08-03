@@ -80,7 +80,7 @@ public class AdMediator implements Thread.UncaughtExceptionHandler {
     /**
      * Dummy runner
      *
-     * @author 11856
+     * @author Ricky Tobing
      */
     static class DummyRunner implements IAdRunner {
 

@@ -64,7 +64,7 @@ public class Result {
 	
 	/**
 	 * Reresents a fixed result. You can only modify the message
-	 * @author 11856
+	 * @author Ricky Tobing
 	 *
 	 */
 	public static class FixedResult extends Result {
