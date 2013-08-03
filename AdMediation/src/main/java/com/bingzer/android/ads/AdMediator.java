@@ -73,7 +73,7 @@ public class AdMediator implements Thread.UncaughtExceptionHandler {
 
     /////////////////////////////////////////////////////////////////////////
     void log(String format, Object... args) {
-        android.util.Log.e(TAG, "AdMediator: " + String.format(format, args));
+        android.util.Log.i(TAG, "AdMediator: " + String.format(format, args));
     }
 
 
