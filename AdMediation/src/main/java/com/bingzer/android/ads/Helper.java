@@ -1,17 +1,18 @@
-/*
- *  Copyright 2009 Ricky Tobing.
+/**
+ * Copyright 2013 Ricky Tobing
  *
- *  The codes provided is part of a Project Bingzer API.
- *  Free to use. Use as is since there is no warranty
- *  that code integration with your own code should always
- *  work the way they intended to do.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- *  Please report any bugs to:
- *               rstobing@bingzer.com
- *  Follow my blogs bingzer.blogspot.com
+ *        http://www.apache.org/licenses/LICENSE-2.0
  *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
-
 package com.bingzer.android.ads;
 
 import android.annotation.SuppressLint;
