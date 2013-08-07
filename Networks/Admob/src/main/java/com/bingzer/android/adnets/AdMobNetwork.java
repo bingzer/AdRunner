@@ -1,4 +1,4 @@
-package com.bingzer.android.adnets;
+package com.bingzer.android.ads;
 
 import com.bingzer.android.ads.AbsAdNetwork;
 import com.bingzer.android.ads.AdContainer;
