@@ -1,0 +1,31 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.5.+'
+    }
+}
+
+apply plugin: 'android-library'
+
+dependencies {
+    compile project(':Library')
+    compile files('libs/AdMob-6.4.1-AdMob.jar')
+}
+
+android {
+    compileSdkVersion 18
+    buildToolsVersion "18.0.1"
+
+    defaultConfig {
+        minSdkVersion 7
+        targetSdkVersion 18
+    }
+}
+
+archivesBaseName = 'adnets-admob'
+group = "com.bingzer.android.ads"
+version = getVersionName()
+android.defaultConfig.versionCode = getVersionCode()
+android.defaultConfig.versionName = getVersionName()
