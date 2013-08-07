@@ -7,29 +7,24 @@ buildscript {
     }
 }
 
-apply plugin: 'maven'
 apply plugin: 'android-library'
 
 repositories {
     mavenCentral()
 }
 
-dependencies {
-    compile 'com.android.support:support-v4:13.0.+'
-}
-
 android {
-    compileSdkVersion 17
-    buildToolsVersion "17.0.0"
+    compileSdkVersion 18
+    buildToolsVersion "18.0.1"
 
     defaultConfig {
         minSdkVersion 7
-        targetSdkVersion 16
+        targetSdkVersion 18
     }
 }
 
-archivesBaseName = 'AdMediation'
-group = "com.bingzer.android"
+archivesBaseName = 'adrunner'
+group = "com.bingzer.android.ads"
 version = getVersionName()
 android.defaultConfig.versionCode = getVersionCode()
 android.defaultConfig.versionName = getVersionName()
