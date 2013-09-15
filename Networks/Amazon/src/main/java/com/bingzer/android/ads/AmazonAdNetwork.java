@@ -13,10 +13,6 @@ import com.amazon.device.ads.AdProperties;
 import com.amazon.device.ads.AdRegistration;
 import com.amazon.device.ads.AdSize;
 import com.amazon.device.ads.AdTargetingOptions;
-import com.bingzer.android.ads.AbsAdNetwork;
-import com.bingzer.android.ads.Helper;
-import com.bingzer.android.ads.IAdNetwork;
-import com.bingzer.android.ads.Result;
 
 public final class AmazonAdNetwork extends AbsAdNetwork<AdLayout> implements AdListener{
 	private AdTargetingOptions ops;
