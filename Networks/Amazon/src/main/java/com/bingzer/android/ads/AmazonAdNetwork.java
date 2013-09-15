@@ -19,7 +19,7 @@ public final class AmazonAdNetwork extends AbsAdNetwork<AdLayout> implements AdL
 	private AdSize adSize;
 	
 	public AmazonAdNetwork(String pubId){
-		this(AdSize.SIZE_AUTO, pubId);
+		this(AdSize.SIZE_320x50, pubId);
 	}
 	
 	public AmazonAdNetwork(AdSize adSize, String pubId){
