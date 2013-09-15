@@ -20,13 +20,14 @@ public final class AmazonAdNetwork extends AbsAdNetwork<AdLayout> implements AdL
     public static final int SIZE_600x90  = 2;
     public static final int SIZE_728x90  = 3;
     public static final int SIZE_1024x50 = 4;
+    public static final int SIZE_AUTO    = 5;
 
 	private AdTargetingOptions ops;
 	private AdSize adSize;
 
 	
 	public AmazonAdNetwork(String pubId){
-		this(SIZE_320x50, pubId);
+		this(SIZE_AUTO, pubId);
 	}
 	
 	public AmazonAdNetwork(int size, String pubId){
@@ -35,6 +36,9 @@ public final class AmazonAdNetwork extends AbsAdNetwork<AdLayout> implements AdL
 
         switch (size){
             default:
+            case SIZE_AUTO:
+                adSize = AdSize.SIZE_AUTO;
+                break;
             case SIZE_300x50:
                 adSize = AdSize.SIZE_300x50;
                 break;
@@ -65,10 +69,7 @@ public final class AmazonAdNetwork extends AbsAdNetwork<AdLayout> implements AdL
 		if(adView == null){			
 			AdRegistration.setAppKey(pubId);
             // auto size thing
-            if(adSize == AdSize.SIZE_AUTO)
-                adView = new AdLayout((Activity) context, AdSize.SIZE_320x50);
-            else
-                adView = new AdLayout((Activity)context, adSize);
+            adView = new AdLayout((Activity)context, adSize);
 
 			adView.setListener(this);
 			adView.setBackgroundResource(android.R.color.transparent);
