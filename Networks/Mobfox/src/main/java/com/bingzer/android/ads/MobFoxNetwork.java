@@ -31,6 +31,7 @@ public final class MobFoxNetwork extends AbsAdNetwork<AdView> implements AdListe
 	public View load(Context context, String... keywords) {
 		if(adView == null){
 			adView = new AdView(context, "http://my.mobfox.com/request.php", pubId, includeLocation, true);
+            adView.setLayoutParams(params());
 			adView.setAdListener(this);
 		}
 		return adView;

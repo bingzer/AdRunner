@@ -81,12 +81,6 @@ public final class AmazonAdNetwork extends AbsAdNetwork<AdLayout> implements AdL
 		return adView;
 	}
 
-    private LayoutParams params(){
-        LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-        params.gravity = Gravity.CENTER_HORIZONTAL;
-        return params;
-    }
-
 	@Override
 	public IAdNetwork unload() {
 		adView.destroy();
