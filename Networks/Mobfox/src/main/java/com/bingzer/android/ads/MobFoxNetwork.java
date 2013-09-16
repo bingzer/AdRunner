@@ -1,14 +1,11 @@
 package com.bingzer.android.ads;
 
+import android.content.Context;
+import android.view.View;
+
 import com.adsdk.sdk.Ad;
 import com.adsdk.sdk.AdListener;
 import com.adsdk.sdk.banner.AdView;
-import com.bingzer.android.ads.AbsAdNetwork;
-import com.bingzer.android.ads.IAdNetwork;
-import com.bingzer.android.ads.Result;
-
-import android.content.Context;
-import android.view.View;
 
 public final class MobFoxNetwork extends AbsAdNetwork<AdView> implements AdListener{
 	private boolean includeLocation = false;

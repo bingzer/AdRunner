@@ -2,9 +2,7 @@ package com.bingzer.android.ads;
 
 import android.app.Activity;
 import android.content.Context;
-import android.view.Gravity;
 import android.view.View;
-import android.widget.LinearLayout.LayoutParams;
 
 import com.amazon.device.ads.AdError;
 import com.amazon.device.ads.AdLayout;

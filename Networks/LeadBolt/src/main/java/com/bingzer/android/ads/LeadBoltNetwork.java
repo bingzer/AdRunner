@@ -5,11 +5,8 @@ import android.content.Context;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.bingzer.android.ads.AbsAdNetwork;
-import com.bingzer.android.ads.IAdNetwork;
-import com.bingzer.android.ads.Result;
-import com.vevaszlqhqevzvr.AdController;
-import com.vevaszlqhqevzvr.AdListener;
+import com.mwichbnnpignqawy.AdController;
+import com.mwichbnnpignqawy.AdListener;
 
 public class LeadBoltNetwork extends AbsAdNetwork<View> implements AdListener{
 

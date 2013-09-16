@@ -1,11 +1,9 @@
 package com.bingzer.android.ads;
 
-import com.bingzer.android.ads.AbsAdNetwork;
-import com.bingzer.android.ads.AdContainer;
-import com.bingzer.android.ads.Helper;
-import com.bingzer.android.ads.IAdNetwork;
-import com.bingzer.android.ads.Result;
-import com.bingzer.android.ads.TestDevices;
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+
 import com.google.ads.Ad;
 import com.google.ads.AdListener;
 import com.google.ads.AdRequest;
@@ -13,10 +11,6 @@ import com.google.ads.AdRequest.ErrorCode;
 import com.google.ads.AdRequest.Gender;
 import com.google.ads.AdSize;
 import com.google.ads.AdView;
-
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
 
 public final class AdMobNetwork extends AbsAdNetwork<AdView> implements AdListener{
 	
