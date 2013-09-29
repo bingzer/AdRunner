@@ -110,7 +110,7 @@ public class AdMediator implements Thread.UncaughtExceptionHandler {
         }
 
         @Override
-        public void onAdReceived(IAdNetwork network, Result result) {
+        public void onAdReceived(IAdNetwork network, AdResult adResult) {
             // do nothing
         }
 

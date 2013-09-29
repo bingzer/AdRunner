@@ -1,11 +1,20 @@
+/**
+ * Copyright 2013 Ricky Tobing
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.bingzer.android.ads;
 
-import com.bingzer.android.ads.AbsAdNetwork;
-import com.bingzer.android.ads.AdContainer;
-import com.bingzer.android.ads.Helper;
-import com.bingzer.android.ads.IAdNetwork;
-import com.bingzer.android.ads.Result;
-import com.bingzer.android.ads.TestDevices;
 import com.google.ads.Ad;
 import com.google.ads.AdListener;
 import com.google.ads.AdRequest;
@@ -18,6 +27,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 
+@SuppressWarnings("UnusedDeclaration")
 public final class AdMobNetwork extends AbsAdNetwork<AdView> implements AdListener{
 	
 	private AdRequest adRequest;
@@ -100,12 +110,12 @@ public final class AdMobNetwork extends AbsAdNetwork<AdView> implements AdListen
 
 	@Override
 	public void onFailedToReceiveAd(Ad ad, ErrorCode err) {
-		callback.onAdReceived(this, Result.Bad.message(err.name()));
+		callback.onAdReceived(this, AdResult.Bad.message(err.name()));
 	}
 
 	@Override
 	public void onReceiveAd(Ad ad) {
-		callback.onAdReceived(this, Result.Good);
+		callback.onAdReceived(this, AdResult.Good);
 	}
 
 }

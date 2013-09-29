@@ -15,6 +15,7 @@
  */
 package com.bingzer.android.ads;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -72,7 +73,7 @@ public class TestDevices {
     /**
      * ALL
      */
-    public static final String[] getDevices() {
+    public static String[] getDevices() {
         if (devices == null) {
             devices = new String[]{
                     TEST_EMULATOR,
@@ -89,14 +90,10 @@ public class TestDevices {
 
     /**
      * Returns as a Set of String
-     *
-     * @return
      */
-    public static final Set<String> getDeviceSet() {
+    public static Set<String> getDeviceSet() {
         Set<String> deviceSet = new HashSet<String>();
-        for (String device : getDevices()) {
-            deviceSet.add(device);
-        }
+        Collections.addAll(deviceSet, getDevices());
 
         return deviceSet;
     }

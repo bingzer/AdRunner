@@ -15,30 +15,30 @@
  */
 package com.bingzer.android.ads;
 
-public class Result {
+public class AdResult {
 
 	boolean success = true;
 	String message = null;
 	
-	public Result(){
+	public AdResult(){
 		this(true);
 	}
 	
-	public Result(boolean success){
+	public AdResult(boolean success){
 		this(success, null);
 	}
 	
-	public Result(boolean success, String message){
+	public AdResult(boolean success, String message){
 		this.success = success;
 		this.message = message;
 	}
 	
-	public Result(Result result){
-		this.success = result.success;
-		this.message = result.message;
+	public AdResult(AdResult adResult){
+		this.success = adResult.success;
+		this.message = adResult.message;
 	}
 	
-	public Result message(String message){
+	public AdResult message(String message){
 		this.message = message;
 		return this;
 	}
@@ -47,7 +47,7 @@ public class Result {
 		return message;
 	}
 	
-	public Result success(boolean success){
+	public AdResult success(boolean success){
 		this.success = success;
 		return this;
 	}
@@ -61,7 +61,7 @@ public class Result {
 	 * @param e
 	 * @return
 	 */
-	public Result consume(Throwable e){
+	public AdResult consume(Throwable e){
 		success = false;
 		message = e.getMessage() == null ? e.toString() : e.getMessage();
 		return this;
@@ -70,26 +70,26 @@ public class Result {
 	/**
 	 * Good result
 	 */
-	public static final FixedResult Good = new FixedResult(true);
+	public static final FixedAdResult Good = new FixedAdResult(true);
 	
 	/**
 	 * Bad result
 	 */
-	public static final FixedResult Bad  = new FixedResult(false);
+	public static final FixedAdResult Bad  = new FixedAdResult(false);
 	
 	/**
 	 * Reresents a fixed result. You can only modify the message
 	 * @author Ricky Tobing
 	 *
 	 */
-	public static class FixedResult extends Result {
+	public static class FixedAdResult extends AdResult {
 		
-		public FixedResult(boolean success){
+		public FixedAdResult(boolean success){
 			this.success = success;
 		}
 		
 		@Deprecated
-		public Result success(boolean success){
+		public AdResult success(boolean success){
 			return this;
 		}
 	}

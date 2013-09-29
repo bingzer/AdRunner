@@ -79,7 +79,7 @@ public abstract class AdClientActivity extends Activity implements IAdClient{
     }
 
     @Override
-    public void onAdReceived(IAdNetwork network, Result result) {
+    public void onAdReceived(IAdNetwork network, AdResult adResult) {
 
     }
 }

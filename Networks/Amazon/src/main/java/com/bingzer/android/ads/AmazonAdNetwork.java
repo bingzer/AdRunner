@@ -13,11 +13,8 @@ import com.amazon.device.ads.AdProperties;
 import com.amazon.device.ads.AdRegistration;
 import com.amazon.device.ads.AdSize;
 import com.amazon.device.ads.AdTargetingOptions;
-import com.bingzer.android.ads.AbsAdNetwork;
-import com.bingzer.android.ads.Helper;
-import com.bingzer.android.ads.IAdNetwork;
-import com.bingzer.android.ads.Result;
 
+@SuppressWarnings("UnusedDeclaration")
 public final class AmazonAdNetwork extends AbsAdNetwork<AdLayout> implements AdListener{
 	private AdTargetingOptions ops;
 	private AdSize adSize;
@@ -97,12 +94,12 @@ public final class AmazonAdNetwork extends AbsAdNetwork<AdLayout> implements AdL
 
 	@Override
 	public void onAdFailedToLoad(AdLayout ad, AdError err) {
-		callback.onAdReceived(this, Result.Bad.message(err.getMessage()));
+		callback.onAdReceived(this, AdResult.Bad.message(err.getMessage()));
 	}
 
 	@Override
 	public void onAdLoaded(AdLayout ad, AdProperties prop) {
-		callback.onAdReceived(this, Result.Good);
+		callback.onAdReceived(this, AdResult.Good);
 	}
 
 }

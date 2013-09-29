@@ -34,8 +34,6 @@ public class AdContainer extends LinearLayout {
     /**
      * Default children's params.
      * Width is LayoutParams.MATCH_PARENT. Height is LayoutParams.WRAP_CONTENT
-     *
-     * @return
      */
     public static LayoutParams params() {
         LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);

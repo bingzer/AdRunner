@@ -88,7 +88,7 @@ public interface IAdNetwork {
 
     public static interface Callback {
 
-        void onAdReceived(IAdNetwork network, Result result);
+        void onAdReceived(IAdNetwork network, AdResult adResult);
 
     }
 }

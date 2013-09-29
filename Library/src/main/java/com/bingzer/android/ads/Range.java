@@ -35,8 +35,6 @@ public class Range {
 	/**
 	 * Checks to see if <code>point</code>
 	 * is within range
-	 * @param point
-	 * @return
 	 */
 	public boolean inRange(float point){
 		return point >= minimum && point <= maximum;

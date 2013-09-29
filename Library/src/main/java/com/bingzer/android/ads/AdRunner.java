@@ -85,20 +85,20 @@ class AdRunner implements IAdRunner {
     }
 
     @Override
-    public void onAdReceived(IAdNetwork network, Result result) {
-        if (!result.success()) {
+    public void onAdReceived(IAdNetwork network, AdResult adResult) {
+        if (!adResult.success()) {
             failCounter++;
-            mediator.log("onAdReceived() - Failed. %1$s - %2$s", network.name(), result.message() == null ? "" : result.message());
+            mediator.log("onAdReceived() - Failed. %1$s - %2$s", network.name(), adResult.message() == null ? "" : adResult.message());
             // this is to force to switch network..
             networkSwitchCount = networkSwitchCounter;
             nextAd();
         } else {
             failCounter = 0;
-            mediator.log("onAdReceived() - Success. %1$s - %2$s", network.name(), result.message() == null ? "" : result.message());
+            mediator.log("onAdReceived() - Success. %1$s - %2$s", network.name(), adResult.message() == null ? "" : adResult.message());
         }
 
         // pass the information to the client
-        client.onAdReceived(network, result);
+        client.onAdReceived(network, adResult);
     }
 
     private boolean isAlive() {
