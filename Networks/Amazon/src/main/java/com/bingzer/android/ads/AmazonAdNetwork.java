@@ -2,9 +2,7 @@ package com.bingzer.android.ads;
 
 import android.app.Activity;
 import android.content.Context;
-import android.view.Gravity;
 import android.view.View;
-import android.widget.LinearLayout.LayoutParams;
 
 import com.amazon.device.ads.AdError;
 import com.amazon.device.ads.AdLayout;
@@ -16,17 +14,46 @@ import com.amazon.device.ads.AdTargetingOptions;
 
 @SuppressWarnings("UnusedDeclaration")
 public final class AmazonAdNetwork extends AbsAdNetwork<AdLayout> implements AdListener{
+    public static final int SIZE_300x50  = 0;
+    public static final int SIZE_320x50  = 1;
+    public static final int SIZE_600x90  = 2;
+    public static final int SIZE_728x90  = 3;
+    public static final int SIZE_1024x50 = 4;
+    public static final int SIZE_AUTO    = 5;
+
 	private AdTargetingOptions ops;
 	private AdSize adSize;
+
 	
 	public AmazonAdNetwork(String pubId){
-		this(AdSize.SIZE_AUTO, pubId);
+		this(SIZE_AUTO, pubId);
 	}
 	
-	public AmazonAdNetwork(AdSize adSize, String pubId){
+	public AmazonAdNetwork(int size, String pubId){
 		this.pubId = pubId;
 		this.ops = new AdTargetingOptions();
-		this.adSize = adSize;
+
+        switch (size){
+            default:
+            case SIZE_AUTO:
+                adSize = AdSize.SIZE_AUTO;
+                break;
+            case SIZE_300x50:
+                adSize = AdSize.SIZE_300x50;
+                break;
+            case SIZE_320x50:
+                adSize = AdSize.SIZE_320x50;
+                break;
+            case SIZE_600x90:
+                adSize = AdSize.SIZE_600x90;
+                break;
+            case SIZE_728x90:
+                adSize = AdSize.SIZE_728x90;
+                break;
+            case SIZE_1024x50:
+                adSize = AdSize.SIZE_1024x50;
+                break;
+        }
 	}
 
 	@Override
@@ -41,8 +68,7 @@ public final class AmazonAdNetwork extends AbsAdNetwork<AdLayout> implements AdL
 		if(adView == null){			
 			AdRegistration.setAppKey(pubId);
             // auto size thing
-            if(adSize == AdSize.SIZE_AUTO) adView = new AdLayout((Activity) context, AdSize.SIZE_320x50);
-            else adView = new AdLayout((Activity)context, adSize);
+            adView = new AdLayout((Activity)context, adSize);
 
 			adView.setListener(this);
 			adView.setBackgroundResource(android.R.color.transparent);
@@ -53,12 +79,6 @@ public final class AmazonAdNetwork extends AbsAdNetwork<AdLayout> implements AdL
 
 		return adView;
 	}
-
-    private LayoutParams params(){
-        LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-        params.gravity = Gravity.CENTER_HORIZONTAL;
-        return params;
-    }
 
 	@Override
 	public IAdNetwork unload() {

@@ -11,7 +11,7 @@ apply plugin: 'android-library'
 
 dependencies {
     compile project(':Library')
-    compile files('libs/Leadbolt-5.1-LeadBolt.jar')
+    compile files('libs/Leadbolt-6.0.jar')
 }
 
 android {

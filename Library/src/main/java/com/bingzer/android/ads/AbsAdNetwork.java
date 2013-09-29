@@ -16,7 +16,9 @@
 package com.bingzer.android.ads;
 
 import android.content.Context;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.bingzer.android.ads.IAdNetwork;
 import com.bingzer.android.ads.Range;
@@ -28,6 +30,7 @@ public abstract class AbsAdNetwork<T extends View> implements IAdNetwork {
     protected String pubId;
     protected Callback callback;
     protected T adView;
+    protected int maximumHeight = LinearLayout.LayoutParams.WRAP_CONTENT;
 
     @Override
     public IAdNetwork enable(boolean enabled) {
@@ -62,8 +65,18 @@ public abstract class AbsAdNetwork<T extends View> implements IAdNetwork {
         return range;
     }
 
-
     /////////////////////////////////////////////////////////
+
+    public void setMaximumHeight(int maximumHeight){
+        this.maximumHeight = maximumHeight;
+    }
+
+    protected LinearLayout.LayoutParams params(){
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, maximumHeight);
+        params.gravity = Gravity.CENTER_HORIZONTAL;
+        return params;
+    }
+
     /////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////
