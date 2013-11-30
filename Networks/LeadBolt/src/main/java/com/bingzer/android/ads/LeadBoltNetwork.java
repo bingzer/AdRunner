@@ -20,8 +20,8 @@ import android.content.Context;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.mwichbnnpignqawy.AdController;
-import com.mwichbnnpignqawy.AdListener;
+import com.lqlsdlqdipwefhnsapz.AdController;
+import com.lqlsdlqdipwefhnsapz.AdListener;
 
 @SuppressWarnings("UnusedDeclaration")
 public class LeadBoltNetwork extends AbsAdNetwork<View> implements AdListener{
@@ -139,4 +139,9 @@ public class LeadBoltNetwork extends AbsAdNetwork<View> implements AdListener{
 		// TODO Auto-generated method stub
 		
 	}
+
+    @Override
+    public void onAdCached() {
+
+    }
 }

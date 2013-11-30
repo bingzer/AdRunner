@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.5.+'
+        classpath 'com.android.tools.build:gradle:0.6.+'
     }
 }
 
@@ -11,16 +11,16 @@ apply plugin: 'android-library'
 
 dependencies {
     compile project(':Library')
-    compile files('libs/amazon-ads-5.1.40.jar')
+    compile files('libs/amazon-ads-5.1.153.jar')
 }
 
 android {
-    compileSdkVersion 18
-    buildToolsVersion "18.0.1"
+    compileSdkVersion 19
+    buildToolsVersion "19"
 
     defaultConfig {
         minSdkVersion 7
-        targetSdkVersion 18
+        targetSdkVersion 19
     }
 }
 

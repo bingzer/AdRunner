@@ -3,26 +3,21 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.5.+'
+        classpath 'com.android.tools.build:gradle:0.6.+'
     }
 }
-
 apply plugin: 'android-library'
-
 repositories {
     mavenCentral()
 }
-
 android {
-    compileSdkVersion 18
-    buildToolsVersion "18.0.1"
-
+    compileSdkVersion 19
+    buildToolsVersion '19'
     defaultConfig {
         minSdkVersion 7
-        targetSdkVersion 18
+        targetSdkVersion 19
     }
 }
-
 archivesBaseName = 'adrunner'
 group = "com.bingzer.android.ads"
 version = getVersionName()
