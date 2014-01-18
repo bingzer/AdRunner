@@ -15,7 +15,6 @@
  */
 package com.bingzer.android.ads;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -28,10 +27,15 @@ public class LeadBoltNetwork extends AbsAdNetwork<View> implements AdListener{
 
 	private AdController adController;
 	private String pubId;
+    private int mockViewHeight;
 	
 	public LeadBoltNetwork(String pubId){
-		this.pubId = pubId;
+        this(pubId, 55);
 	}
+
+    public LeadBoltNetwork(String pubId, int viewHeight){
+        this.pubId = pubId;
+    }
 
 	@Override
 	public String name() {
@@ -41,7 +45,7 @@ public class LeadBoltNetwork extends AbsAdNetwork<View> implements AdListener{
 	@Override
 	public View load(Context context, String... keywords) {
 		// this is the controller
-		if(adController == null) adController = new AdController((Activity) context, pubId, this); 
+		if(adController == null) adController = new AdController(context, pubId, this);
 		if(adView == null) adView = new MockView(context);
 		
 		return adView;
@@ -64,8 +68,14 @@ public class LeadBoltNetwork extends AbsAdNetwork<View> implements AdListener{
 		return this;
 	}
 
+    @Override
+    public boolean onBackPressed() {
+        if(adController != null)
+            return adController.onBackPressed();
+        return super.onBackPressed(); // false
+    }
 
-	//////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////////////////
@@ -75,12 +85,12 @@ public class LeadBoltNetwork extends AbsAdNetwork<View> implements AdListener{
 	 * @author Ricky
 	 *
 	 */
-	private static class MockView extends LinearLayout{
+	private class MockView extends LinearLayout{
 
 		public MockView(Context context) {
 			super(context);
-			setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 55));
-			setMinimumHeight(55);
+			setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, mockViewHeight));
+			setMinimumHeight(mockViewHeight);
 		}
 
 	}

@@ -85,7 +85,15 @@ public interface IAdNetwork {
      */
     IAdNetwork unload();
 
+    /**
+     * Returns true if this particular network has onBackPressed
+     * available.
+     */
+    boolean onBackPressed();
 
+    /**
+     * Callback
+     */
     public static interface Callback {
 
         void onAdReceived(IAdNetwork network, AdResult adResult);

@@ -44,9 +44,6 @@ public class AdMediator implements Thread.UncaughtExceptionHandler {
 
     /**
      * This should be called in onCreate()
-     *
-     * @param client
-     * @return
      */
     public IAdRunner create(IAdClient client) {
         keywordList.clear();
@@ -59,8 +56,6 @@ public class AdMediator implements Thread.UncaughtExceptionHandler {
 
     /**
      * Adds a global keywords
-     *
-     * @param keywords
      */
     public void addKeywords(String... keywords) {
         if (keywords != null) {

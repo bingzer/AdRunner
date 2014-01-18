@@ -65,6 +65,11 @@ public abstract class AbsAdNetwork<T extends View> implements IAdNetwork {
         return range;
     }
 
+    @Override
+    public boolean onBackPressed(){
+        return false;
+    }
+
     /////////////////////////////////////////////////////////
 
     public void setMaximumHeight(int maximumHeight){
