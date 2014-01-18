@@ -90,4 +90,10 @@ public interface IAdRunner extends IAdNetwork.Callback {
      */
     void setMaxSleep(int seconds);
 
+    /**
+     * Sets the distro url.
+     * @see com.bingzer.android.ads.IAdDistro
+     */
+    void setDistroUrl(String url);
+
 }

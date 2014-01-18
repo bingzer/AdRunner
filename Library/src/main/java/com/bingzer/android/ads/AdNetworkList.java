@@ -27,52 +27,69 @@ public class AdNetworkList {
         nextPoint = 0;
     }
 
-    public IAdNetwork add(IAdNetwork network, float hitPercentage) {
-        if (network == null) return network;
+    public void add(IAdNetwork network, float hitPercentage) {
         if (!hasNetwork(network)) {
-            // -- calculate range..
-            Range range = new Range();
-            range.minimum = nextPoint;
-            range.maximum = (range.minimum + hitPercentage) - 1;
-            nextPoint = range.maximum + 1;
-            network.range(range);
+            setHitPercentage(network, hitPercentage);
             // -- add to the list
             list.add(network);
         }
-
-        return network;
     }
 
     /**
-     * Returns the next 'random' <code>enabled</code> provider
-     *
-     * @return
+     * Returns the next 'random' <code>isEnabled</code> provider
      */
     public IAdNetwork getNextNetwork() {
         float hitPoint = Helper.getRandom(0f, 100f);
         for (IAdNetwork network : list) {
-            if (network.enabled() && network.range().inRange(hitPoint))
+            if (network.isEnabled() && network.getRange().inRange(hitPoint))
                 return network;
         }
 
         try {
-            return list.get(0);
+            // find the next 'enabled' network
+            for(IAdNetwork network : list){
+                if(network.isEnabled()) return  network;
+            }
+
+            // we can't find anything
+            return null;
         } catch (Throwable e) {
             return null;
         }
     }
 
     /**
-     * Trus if has this network/network has been added
-     *
-     * @param network
-     * @return
+     * True if has this network/network has been added
      */
     public boolean hasNetwork(IAdNetwork network) {
         for (IAdNetwork n : list) {
-            if (n.name().equalsIgnoreCase(network.name()))
+            if (n.getName().equalsIgnoreCase(network.getName()))
                 return true;
         }
         return false;
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////
+
+    protected IAdNetwork getNetworkByName(String name){
+        for (IAdNetwork n : list){
+            if (n.getName().equalsIgnoreCase(name))
+                return n;
+        }
+
+        return null;
+    }
+
+    protected void resetHitPercentages(){
+        nextPoint = 0;
+    }
+
+    protected void setHitPercentage(IAdNetwork network, float hitPercentage){
+        // -- calculate range..
+        Range range = new Range();
+        range.minimum = nextPoint;
+        range.maximum = (range.minimum + hitPercentage) - 1;
+        nextPoint = range.maximum + 1;
+        network.setRange(range);
     }
 }

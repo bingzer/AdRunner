@@ -57,7 +57,7 @@ public final class AmazonAdNetwork extends AbsAdNetwork<AdLayout> implements AdL
 	}
 
 	@Override
-	public String name() {
+	public String getName() {
 		return "Amazon";
 	}
 

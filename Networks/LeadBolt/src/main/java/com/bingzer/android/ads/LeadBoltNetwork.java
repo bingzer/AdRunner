@@ -35,10 +35,11 @@ public class LeadBoltNetwork extends AbsAdNetwork<View> implements AdListener{
 
     public LeadBoltNetwork(String pubId, int viewHeight){
         this.pubId = pubId;
+        this.mockViewHeight = viewHeight;
     }
 
 	@Override
-	public String name() {
+	public String getName() {
 		return "LeadBolt";
 	}
 

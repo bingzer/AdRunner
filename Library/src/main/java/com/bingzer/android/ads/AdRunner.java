@@ -23,6 +23,7 @@ class AdRunner implements IAdRunner {
     private IAdClient client;
     private AdMediator mediator;
     private IAdNetwork currentNetwork;
+    private IAdDistro adDistro;
 
     private int failCounter = 0;
     private int networkSwitchCount = 0;
@@ -36,6 +37,7 @@ class AdRunner implements IAdRunner {
         this.mediator = mediator;
         this.client = client;
         this.name = client.getClass().getSimpleName();
+        this.adDistro = new AdDistro(client);
 
         // randomize..
         mediator.log("********** Starting AdRunner: %1$s. **************", name);
@@ -55,6 +57,11 @@ class AdRunner implements IAdRunner {
 
     public void setMaxSleep(int seconds) {
         this.maxSleep = seconds;
+    }
+
+    @Override
+    public void setDistroUrl(String url) {
+        adDistro.setUrl(url);
     }
 
     @Override
@@ -88,13 +95,13 @@ class AdRunner implements IAdRunner {
     public void onAdReceived(IAdNetwork network, AdResult adResult) {
         if (!adResult.success()) {
             failCounter++;
-            mediator.log("onAdReceived() - Failed. %1$s - %2$s", network.name(), adResult.message() == null ? "" : adResult.message());
+            mediator.log("onAdReceived() - Failed. %1$s - %2$s", network.getName(), adResult.message() == null ? "" : adResult.message());
             // this is to force to switch network..
             networkSwitchCount = networkSwitchCounter;
             nextAd();
         } else {
             failCounter = 0;
-            mediator.log("onAdReceived() - Success. %1$s - %2$s", network.name(), adResult.message() == null ? "" : adResult.message());
+            mediator.log("onAdReceived() - Success. %1$s - %2$s", network.getName(), adResult.message() == null ? "" : adResult.message());
         }
 
         // pass the information to the client
@@ -115,15 +122,16 @@ class AdRunner implements IAdRunner {
 
     /**
      * Creates the thread
-     *
-     * @return
      */
-    private final Thread createThread() {
+    private Thread createThread() {
         return new Thread(new Runnable() {
             private int sleep;
 
             @Override
             public void run() {
+                final AdNetworkList networkList = client.getAdNetworkList();
+                adDistro.configure(networkList);
+
                 while (!die) {
                     if (failCounter >= AdMediator.MAX_FAIL_COUNT) {
                         mediator.log("Too many time failed. Exiting...");
@@ -142,7 +150,7 @@ class AdRunner implements IAdRunner {
                                 public void run() {
                                     client.getAdContainer().removeAllViews();
                                     currentNetwork.unload();
-                                    mediator.log("%1$s AdNetwork: %2$s unload()", name, currentNetwork.name());
+                                    mediator.log("%1$s AdNetwork: %2$s unload()", name, currentNetwork.getName());
                                 }
                             });
                         }
@@ -151,13 +159,13 @@ class AdRunner implements IAdRunner {
                         client.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                currentNetwork = client.getAdNetworkList().getNextNetwork();
+                                currentNetwork = networkList.getNextNetwork();
 
                                 View adView = currentNetwork.load(client.getContext(), client.getKeywords());
-                                mediator.log("%1$s AdNetwork: %2$s load()", name, currentNetwork.name());
+                                mediator.log("%1$s AdNetwork: %2$s load()", name, currentNetwork.getName());
                                 client.getAdContainer().addView(adView, AdContainer.params());
 
-                                mediator.log("%1$s AdNetwork: %2$s showAd()", name, currentNetwork.name());
+                                mediator.log("%1$s AdNetwork: %2$s showAd()", name, currentNetwork.getName());
                                 currentNetwork.showAd(AdRunner.this);
                             }
                         });
@@ -167,7 +175,7 @@ class AdRunner implements IAdRunner {
                     else if (currentNetwork != null) {
                         client.runOnUiThread(new Runnable() {
                             public void run() {
-                                mediator.log("%1$s AdNetwork: %2$s showAd()", name, currentNetwork.name());
+                                mediator.log("%1$s AdNetwork: %2$s showAd()", name, currentNetwork.getName());
                                 currentNetwork.showAd(AdRunner.this);
                             }
                         });

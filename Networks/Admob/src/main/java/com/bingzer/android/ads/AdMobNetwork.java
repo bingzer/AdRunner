@@ -49,7 +49,7 @@ public final class AdMobNetwork extends AbsAdNetwork<AdView> implements AdListen
 	}
 
 	@Override
-	public String name() {
+	public String getName() {
 		return "AdMob";
 	}
 

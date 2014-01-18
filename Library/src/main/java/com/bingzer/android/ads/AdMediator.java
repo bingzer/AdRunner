@@ -111,20 +111,25 @@ public class AdMediator implements Thread.UncaughtExceptionHandler {
 
         @Override
         public void setNetworkSwitchCount(int switchCount) {
-            // TODO Auto-generated method stub
+            // nothing
 
         }
 
         @Override
         public void setMinSleep(int seconds) {
-            // TODO Auto-generated method stub
+            // nothing
 
         }
 
         @Override
         public void setMaxSleep(int seconds) {
-            // TODO Auto-generated method stub
+            // nothing
 
+        }
+
+        @Override
+        public void setDistroUrl(String url) {
+            // nothing
         }
 
     }

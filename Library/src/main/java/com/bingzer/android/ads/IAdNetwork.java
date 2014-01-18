@@ -26,52 +26,42 @@ import android.view.View;
 
 public interface IAdNetwork {
 
-    IAdNetwork enable(boolean enabled);
-
     /**
      * Returns the name
      *
      * @return the name of this ad network
      */
-    String name();
+    String getName();
+
+    /**
+     * Sets enabled
+     */
+    void setEnabled(boolean enabled);
 
     /**
      * True if enabled
-     *
-     * @return
      */
-    boolean enabled();
+    boolean isEnabled();
 
     /**
      * Sets the range
-     *
-     * @param range
-     * @return
      */
-    IAdNetwork range(Range range);
+    void setRange(Range range);
 
     /**
      * Returns the range
-     *
-     * @return
      */
-    Range range();
+    Range getRange();
 
     /**
      * Returns the view (this may be null)
      * if {@link #load(android.content.Context, String...)} has not
      * been called yet
-     *
-     * @return
      */
     View getView();
 
     /**
      * Loads and return the view
-     *
-     * @param context
-     * @param keywords
-     * @return
      */
     View load(Context context, String... keywords);
 

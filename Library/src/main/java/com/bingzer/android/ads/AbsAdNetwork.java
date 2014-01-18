@@ -20,9 +20,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.bingzer.android.ads.IAdNetwork;
-import com.bingzer.android.ads.Range;
-
 public abstract class AbsAdNetwork<T extends View> implements IAdNetwork {
 
     protected boolean enabled = true;
@@ -33,9 +30,8 @@ public abstract class AbsAdNetwork<T extends View> implements IAdNetwork {
     protected int maximumHeight = LinearLayout.LayoutParams.WRAP_CONTENT;
 
     @Override
-    public IAdNetwork enable(boolean enabled) {
+    public void setEnabled(boolean enabled) {
         this.enabled = enabled;
-        return this;
     }
 
     @Override
@@ -44,7 +40,7 @@ public abstract class AbsAdNetwork<T extends View> implements IAdNetwork {
     }
 
     @Override
-    public boolean enabled() {
+    public boolean isEnabled() {
         return enabled;
     }
 
@@ -52,16 +48,15 @@ public abstract class AbsAdNetwork<T extends View> implements IAdNetwork {
      * Sets the range
      */
     @Override
-    public IAdNetwork range(Range range) {
+    public void setRange(Range range) {
         this.range = range;
-        return this;
     }
 
     /**
      * Returns the range
      */
     @Override
-    public Range range() {
+    public Range getRange() {
         return range;
     }
 
@@ -88,7 +83,7 @@ public abstract class AbsAdNetwork<T extends View> implements IAdNetwork {
     /////////////////////////////////////////////////////////
 
     @Override
-    public abstract String name();
+    public abstract String getName();
 
     @Override
     public abstract View load(Context context, String... keywords);

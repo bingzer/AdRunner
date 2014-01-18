@@ -36,7 +36,7 @@ public final class MobFoxNetwork extends AbsAdNetwork<AdView> implements AdListe
 	}
 
 	@Override
-	public String name() {
+	public String getName() {
 		return "Mobfox";
 	}
 
