@@ -84,14 +84,15 @@ class AdDistro implements IAdDistro{
 
                 String name = jsonNetwork.getString("name");
                 boolean enabled = jsonNetwork.getBoolean("enabled");
-                float range = (float)jsonNetwork.getDouble("range");
+                float hitPercentage = (float)jsonNetwork.getDouble("hit");
 
                 // apply this configuration to the corresponding network
                 // from the network list
                 IAdNetwork adNetwork = list.getNetworkByName(name);
                 if(adNetwork != null){
                     adNetwork.setEnabled(enabled);
-                    list.setHitPercentage(adNetwork, range);
+                    // only set the hit percentage
+                    if(adNetwork.isEnabled()) list.setHitPercentage(adNetwork, hitPercentage);
                 }
             }
 
