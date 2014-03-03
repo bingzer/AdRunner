@@ -6,19 +6,26 @@ buildscript {
         classpath 'com.android.tools.build:gradle:0.7.+'
     }
 }
+
 apply plugin: 'android-library'
-repositories {
-    mavenCentral()
+
+dependencies {
+    compile project(':Library')
+
+    compile 'com.google.android.gms:play-services:4.1.32'
 }
+
 android {
     compileSdkVersion 19
-    buildToolsVersion '19.0.1'
+    buildToolsVersion "19.0.1"
+
     defaultConfig {
         minSdkVersion 8
         targetSdkVersion 19
     }
 }
-archivesBaseName = 'adrunner'
+
+archivesBaseName = 'adnets-admob-google-ads'
 group = "com.bingzer.android.ads"
 version = getVersionName()
 android.defaultConfig.versionCode = getVersionCode()

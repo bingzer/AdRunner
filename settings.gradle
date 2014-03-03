@@ -1,2 +1,3 @@
 include ':Library'
-include ':Networks:Admob', ':Networks:Amazon', ':Networks:LeadBolt', 'Networks:Mobfox'
+include ':Networks:Admob', ':Networks:Admob:GoogleAds', 'Networks:Admob:AdMobSdk'
+include ':Networks:Amazon', ':Networks:LeadBolt', 'Networks:Mobfox'

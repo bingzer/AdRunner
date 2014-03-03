@@ -11,7 +11,8 @@ apply plugin: 'android-library'
 
 dependencies {
     compile project(':Library')
-    compile files('libs/AdMob-6.4.1-AdMob.jar')
+    compile project(':Networks:Admob:AdMobSdk')
+    compile project(':Networks:Admob:GoogleAds')
 }
 
 android {
@@ -19,7 +20,7 @@ android {
     buildToolsVersion "19.0.1"
 
     defaultConfig {
-        minSdkVersion 7
+        minSdkVersion 8
         targetSdkVersion 19
     }
 }
