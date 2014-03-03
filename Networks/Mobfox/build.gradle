@@ -11,12 +11,12 @@ apply plugin: 'android-library'
 
 dependencies {
     compile project(':Library')
-    compile files('libs/mobfox-4.1.6-mobfox-adsdk.jar')
+    compile files('libs/AdSdk_5.0.0.jar')
 }
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "19"
+    buildToolsVersion "19.0.1"
 
     defaultConfig {
         minSdkVersion 7
