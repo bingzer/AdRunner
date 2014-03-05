@@ -23,13 +23,12 @@ public final class AmazonAdNetwork extends AbsAdNetwork<AdLayout> implements AdL
 
 	private AdTargetingOptions ops;
 	private AdSize adSize;
-
 	
 	public AmazonAdNetwork(String pubId){
 		this(SIZE_AUTO, pubId);
 	}
-	
-	public AmazonAdNetwork(int size, String pubId){
+
+    public AmazonAdNetwork(int size, String pubId){
 		this.pubId = pubId;
 		this.ops = new AdTargetingOptions();
 
@@ -65,8 +64,12 @@ public final class AmazonAdNetwork extends AbsAdNetwork<AdLayout> implements AdL
 	public View load(Context context, String... keywords) {
         if(!(context instanceof Activity))
             throw new IllegalArgumentException("Amazon load() is expecting an Activity from context param");
-		if(adView == null){			
-			AdRegistration.setAppKey(pubId);
+		if(adView == null){
+            // enable testing if pubId is null or empty
+            if(pubId == null || pubId.length() == 0)
+                AdRegistration.enableTesting(true);
+			else
+                AdRegistration.setAppKey(pubId);
             // auto size thing
             adView = new AdLayout((Activity)context, adSize);
 

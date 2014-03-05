@@ -15,8 +15,10 @@
  */
 package com.bingzer.android.ads;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -32,6 +34,7 @@ public class TestDevices {
      * from TestDevices.getDevices()
      */
     private static String[] devices = null;
+    private static List<String> additionalDevices = new ArrayList<String>();
 
     // ------------------------------------------------------------------------------------- //
 
@@ -88,12 +91,17 @@ public class TestDevices {
         return devices;
     }
 
+    public static void addAdditionalDevice(String deviceId){
+        additionalDevices.add(deviceId);
+    }
+
     /**
      * Returns as a Set of String
      */
     public static Set<String> getDeviceSet() {
         Set<String> deviceSet = new HashSet<String>();
         Collections.addAll(deviceSet, getDevices());
+        Collections.addAll(deviceSet, additionalDevices.toArray(new String[additionalDevices.size()]));
 
         return deviceSet;
     }

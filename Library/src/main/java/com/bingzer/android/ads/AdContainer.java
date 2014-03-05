@@ -25,13 +25,6 @@ import android.widget.LinearLayout;
  */
 public class AdContainer extends LinearLayout {
 
-    public static final int BANNER = 0;
-    public static final int FULL_BANNER = 1;
-    public static final int LEADERBOARD = 2;
-    public static final int MEDIUM_RECTANGLE = 3;
-    public static final int WIDE_SKYSCRAPER = 4;
-    public static final int SMART_BANNER = 5;
-
     public AdContainer(Context context, AttributeSet attrs) {
         super(context, attrs);
         setGravity(Gravity.CENTER_HORIZONTAL);

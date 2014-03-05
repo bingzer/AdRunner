@@ -28,28 +28,40 @@ import com.google.android.gms.plus.model.people.Person;
  * AdMobSdkNetwork. This is the old way of doing things
  */
 @SuppressWarnings("UnusedDeclaration")
-class GoogleAdsNetwork extends AbsAdNetwork<AdView> {
+public class GoogleAdsNetwork extends AbsAdNetwork<AdView> {
 
-    protected AdRequest adRequest;
-    protected AdSize adSize;
+    public static final int BANNER = 0;
+    public static final int FULL_BANNER = 1;
+    public static final int LEADERBOARD = 2;
+    public static final int MEDIUM_RECTANGLE = 3;
+    public static final int WIDE_SKYSCRAPER = 4;
+    public static final int SMART_BANNER = 5;
 
-    GoogleAdsNetwork(int size, String pubId){
+    private AdRequest adRequest;
+    private AdSize adSize;
+
+    public GoogleAdsNetwork(int size, String pubId){
         this.pubId = pubId;
         switch (size){
-            case AdContainer.BANNER:
+            case BANNER:
                 adSize = AdSize.BANNER; break;
-            case AdContainer.FULL_BANNER:
+            case FULL_BANNER:
                 adSize = AdSize.FULL_BANNER; break;
-            case AdContainer.LEADERBOARD:
+            case LEADERBOARD:
                 adSize = AdSize.LEADERBOARD; break;
-            case AdContainer.MEDIUM_RECTANGLE:
+            case MEDIUM_RECTANGLE:
                 adSize = AdSize.MEDIUM_RECTANGLE; break;
             default:
-            case AdContainer.SMART_BANNER:
+            case SMART_BANNER:
                 adSize = AdSize.SMART_BANNER; break;
-            case AdContainer.WIDE_SKYSCRAPER:
+            case WIDE_SKYSCRAPER:
                 adSize = AdSize.WIDE_SKYSCRAPER; break;
         }
+    }
+
+    public GoogleAdsNetwork(AdSize adSize, String pubId){
+        this.pubId = pubId;
+        this.adSize = adSize;
     }
 
     @Override
@@ -59,7 +71,7 @@ class GoogleAdsNetwork extends AbsAdNetwork<AdView> {
 
     @Override
     public String getName() {
-        return "AdMob-GMS";
+        return "AdMob";
     }
 
     @Override

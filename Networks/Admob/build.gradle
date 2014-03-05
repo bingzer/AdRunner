@@ -11,8 +11,8 @@ apply plugin: 'android-library'
 
 dependencies {
     compile project(':Library')
-    compile project(':Networks:Admob:AdMobSdk')
-    compile project(':Networks:Admob:GoogleAds')
+
+    compile files('libs/AdMob-6.4.1-AdMob.jar')
 }
 
 android {

@@ -1,3 +1,8 @@
-include ':Library'
-include ':Networks:Admob', ':Networks:Admob:GoogleAds', 'Networks:Admob:AdMobSdk'
+include ':Library', ':Sample'
+include ':Networks:GoogleAds'
 include ':Networks:Amazon', ':Networks:LeadBolt', 'Networks:Mobfox'
+
+// deprecated by Google in August 2014
+include ':Networks:Admob'
+
+include ':Sample'

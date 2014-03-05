@@ -7,12 +7,18 @@ buildscript {
     }
 }
 
-apply plugin: 'android-library'
+apply plugin: 'android'
 
 dependencies {
     compile project(':Library')
 
-    compile files('libs/AdMob-6.4.1-AdMob.jar')
+    compile project(':Networks:Amazon')
+    compile project(':Networks:LeadBolt')
+    compile project(':Networks:Mobfox')
+    compile project(':Networks:GoogleAds')
+
+    compile 'com.android.support:appcompat-v7:+'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
 }
 
 android {
@@ -25,7 +31,7 @@ android {
     }
 }
 
-archivesBaseName = 'adnets-admob-sdk'
+archivesBaseName = 'adnets-sample'
 group = "com.bingzer.android.ads"
 version = getVersionName()
 android.defaultConfig.versionCode = getVersionCode()
