@@ -69,8 +69,8 @@ class AdDistro implements IAdDistro{
             File localJson = new File(adClient.getContext().getCacheDir(), FILENAME);
             // every week, we go out and get the new json file
             if(!localJson.exists() || localJson.lastModified() < Timespan.now() - Timespan.WEEKS_1){
-                Log.i(TAG, "Local ad_distro.json does not exists or it may be outdated");
-                httpGetTaskIconsJSON(localJson);
+                Log.i(TAG, "Local ads_distro.json does not exists or it may be outdated");
+                httpGetDistroJson(localJson);
             }
 
             BufferedInputStream input = new BufferedInputStream(new FileInputStream(localJson));
@@ -105,14 +105,7 @@ class AdDistro implements IAdDistro{
         return applied;
     }
 
-    private InputStream open() throws IOException{
-        URL u = new URL(url);
-        URLConnection urlConnection = u.openConnection();
-        urlConnection.setConnectTimeout(1000);
-        return urlConnection.getInputStream();
-    }
-
-    private void httpGetTaskIconsJSON(File file){
+    private void httpGetDistroJson(File file){
         HttpClient client = new DefaultHttpClient();
         try{
             HttpGet get = new HttpGet(url);
@@ -127,7 +120,7 @@ class AdDistro implements IAdDistro{
             }
         }
         catch (Throwable e){
-            Log.e(TAG, "httpGetTaskIconsJSON", e);
+            Log.e(TAG, "httpGetDistroJson", e);
         }
     }
 
