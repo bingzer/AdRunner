@@ -1,0 +1,26 @@
+{
+  "date":1234324234,
+	"networks":
+	[
+		{
+			"name":"admob",
+			"enabled":true,
+			"hit":55
+		},
+		{
+			"name":"amazon",
+			"enabled":true,
+			"hit":35
+		},
+		{
+			"name":"leadbolt",
+			"enabled":true,
+			"hit":5
+		},
+		{
+			"name":"mobfox",
+			"enabled":true,
+			"hit":5
+		}
+	]
+}
