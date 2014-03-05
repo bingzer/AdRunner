@@ -1,3 +1,18 @@
+/**
+ * Copyright 2014 Ricky Tobing
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.bingzer.android.ads.sample;
 
 import android.content.Context;
@@ -20,6 +35,9 @@ import com.bingzer.android.ads.LeadBoltNetwork;
 import com.bingzer.android.ads.MobFoxNetwork;
 import com.bingzer.android.ads.TestDevices;
 
+/**
+ * Shows a sample AdRunner in the works.
+ */
 public class AdActivity extends ActionBarActivity implements IAdClient {
 
     private IAdRunner adRunner;
@@ -29,10 +47,12 @@ public class AdActivity extends ActionBarActivity implements IAdClient {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ad);
 
+        // Add the additional device id here
         TestDevices.addAdditionalDevice("E2527975F7968CF4B8BE1BB427FFD7FA");
 
         // Create the adRunner here
         adRunner = AdMediator.instance().create(this);
+
         // sets all options you have
         // remote distro, this way you can manage the distribution of network range
         // via the interweb
@@ -103,18 +123,23 @@ public class AdActivity extends ActionBarActivity implements IAdClient {
 
     @Override
     public AdNetworkList getAdNetworkList() {
+        throw new UnsupportedOperationException("getAdNetworkList() not implemented. You need to set this up. Uncomment the code");
+
+        /*
         AdNetworkList list = new AdNetworkList();
-        list.add(new GoogleAdsNetwork(GoogleAdsNetwork.SMART_BANNER, ""), 50);
-        list.add(new AmazonAdNetwork(AmazonAdNetwork.SIZE_AUTO, ""), 50);
 
-        // To test leadbolt you need to create/have an existing app in LeadBolt Network
-        //list.add(new LeadBoltNetwork(""), 25);
+        // IMPORTANT: Use your own pub-id to test.
+        // For example: If you want AdMob to show about 50% at a time and Amazon: 30%
+        // and LeadBolt 25% and MobFox: 25%.
+        // This is how you do it.
 
-        // same thing with mobfox
-        //list.add(new MobFoxNetwork(""), 25);
-
+        list.add(new GoogleAdsNetwork(GoogleAdsNetwork.SMART_BANNER, "<pub-id>"), 50); // 50%
+        list.add(new AmazonAdNetwork(AmazonAdNetwork.SIZE_AUTO, "<pub-id>"), 30);  // 30%
+        list.add(new LeadBoltNetwork("<pub-id>"), 25); // 15%
+        list.add(new MobFoxNetwork("<pub-id>"), 25); // 5%
 
         return list;
+        */
     }
 
     @Override
