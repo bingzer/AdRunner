@@ -15,8 +15,8 @@
  */
 package com.bingzer.android.ads.sample;
 
+import android.app.Activity;
 import android.content.Context;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -38,7 +38,7 @@ import com.bingzer.android.ads.TestDevices;
 /**
  * Shows a sample AdRunner in the works.
  */
-public class AdActivity extends ActionBarActivity implements IAdClient {
+public class AdActivity extends Activity implements IAdClient {
 
     private IAdRunner adRunner;
 

@@ -1,8 +1,21 @@
-include ':Library', ':Sample'
-include ':Networks:GoogleAds'
-include ':Networks:Amazon', ':Networks:LeadBolt', 'Networks:Mobfox'
+// The main library
+include ':Library'
 
 // deprecated by Google in August 2014
-include ':Networks:Admob'
+// YOU have to choose between AdMob or Google Ads
+// include ':Networks:Admob'
 
+// The new Google Ads (via Google Play Services)
+include ':Networks:GoogleAds'
+
+// Amazon ads
+include ':Networks:Amazon'
+
+// LeadBolt
+include 'Networks:LeadBolt'
+
+// MObfox
+include 'Networks:Mobfox'
+
+// Sample App
 include ':Sample'

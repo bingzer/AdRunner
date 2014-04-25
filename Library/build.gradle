@@ -1,25 +1,21 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:0.7.+'
-    }
-}
+project.ext.set("archivesBaseName", "adrunner");
+
 apply plugin: 'android-library'
-repositories {
-    mavenCentral()
-}
+
 android {
-    compileSdkVersion 19
-    buildToolsVersion '19.0.1'
+    compileSdkVersion Integer.parseInt(project.VERSION_SDK)
+    buildToolsVersion project.VERSION_TOOLS
+
     defaultConfig {
-        minSdkVersion 8
-        targetSdkVersion 19
+        minSdkVersion Integer.parseInt(project.VERSION_SDK_MIN)
+        targetSdkVersion Integer.parseInt(project.VERSION_SDK_TARGET)
+        versionCode Integer.parseInt(project.VERSION_CODE)
+        versionName project.VERSION_NAME
+    }
+
+    lintOptions {
+        abortOnError false
     }
 }
-archivesBaseName = 'adrunner'
-group = "com.bingzer.android.ads"
-version = getVersionName()
-android.defaultConfig.versionCode = getVersionCode()
-android.defaultConfig.versionName = getVersionName()
+
+apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
