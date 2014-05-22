@@ -28,7 +28,7 @@ public class AdContainer extends LinearLayout {
     public AdContainer(Context context, AttributeSet attrs) {
         super(context, attrs);
         setGravity(Gravity.CENTER_HORIZONTAL);
-        setBackgroundResource(android.R.color.transparent);
+        setBackgroundColor(getContext().getResources().getColor(android.R.color.transparent));
     }
 
     /**
