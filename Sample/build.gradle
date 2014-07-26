@@ -16,6 +16,7 @@ android {
     buildToolsVersion project.VERSION_TOOLS
 
     defaultConfig {
+        applicationId "com.bingzer.android.ads.sample"
         minSdkVersion Integer.parseInt(project.VERSION_SDK_MIN)
         targetSdkVersion Integer.parseInt(project.VERSION_SDK_TARGET)
         versionCode Integer.parseInt(project.VERSION_CODE)
