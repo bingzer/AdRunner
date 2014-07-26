@@ -4,7 +4,7 @@ apply plugin: 'com.android.library'
 
 dependencies {
     compile project(':Library')
-    compile 'com.google.android.gms:play-services:5+'
+    compile 'com.google.android.gms:play-services:4.3.23'
 }
 
 android {
