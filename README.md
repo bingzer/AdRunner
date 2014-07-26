@@ -15,16 +15,16 @@ Download
     compile 'com.bingzer.android.ads:adrunner:1.0.1'
     
     // GoogleAds (was AdMob)
-    compile 'com.bingzer.android.ads:google:1.0.1'
+    compile 'com.bingzer.android.ads:adnets-google:1.0.1'
     
     // Amazon
-    compile 'com.bingzer.android.ads:amazon:1.0.1'
+    compile 'com.bingzer.android.ads:adnets-amazon:1.0.1'
     
     // LeadBolt
-    compile 'com.bingzer.android.ads:leadbolt:1.0.1'
+    compile 'com.bingzer.android.ads:adnets-leadbolt:1.0.1'
     
     // Mobfox
-    compile 'com.bingzer.android.ads:mobfox:1.01'
+    compile 'com.bingzer.android.ads:adnets-mobfox:1.01'
     
 ```
 
