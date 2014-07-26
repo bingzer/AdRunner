@@ -24,7 +24,7 @@ Download
     compile 'com.bingzer.android.ads:adnets-leadbolt:1.0.1'
     
     // Mobfox
-    compile 'com.bingzer.android.ads:adnets-mobfox:1.01'
+    compile 'com.bingzer.android.ads:adnets-mobfox:1.0.1'
     
 ```
 
