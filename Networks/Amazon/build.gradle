@@ -1,10 +1,10 @@
 project.ext.set("archivesBaseName", "adnets-amazon");
 
-apply plugin: 'android-library'
+apply plugin: 'com.android.library'
 
 dependencies {
     compile project(':Library')
-    compile files('libs/amazon-ads-5.1.153.jar')
+    compile files('libs/amazon-ads-5.4.78.jar')
 }
 
 android {
@@ -12,6 +12,7 @@ android {
     buildToolsVersion project.VERSION_TOOLS
 
     defaultConfig {
+        applicationId project.GROUP
         minSdkVersion Integer.parseInt(project.VERSION_SDK_MIN)
         targetSdkVersion Integer.parseInt(project.VERSION_SDK_TARGET)
         versionCode Integer.parseInt(project.VERSION_CODE)
@@ -23,4 +24,4 @@ android {
     }
 }
 
-apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
+apply from: 'https://raw.github.com/bingzer/gradle-mvn-push/master/gradle-mvn-push.gradle'

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 
+import com.amazon.device.ads.Ad;
 import com.amazon.device.ads.AdError;
 import com.amazon.device.ads.AdLayout;
 import com.amazon.device.ads.AdListener;
@@ -74,7 +75,6 @@ public final class AmazonAdNetwork extends AbsAdNetwork<AdLayout> implements AdL
             adView = new AdLayout((Activity)context, adSize);
 
 			adView.setListener(this);
-			adView.setBackgroundResource(android.R.color.transparent);
 			adView.setLayoutParams(params());
 		}
 		ops.setGender(Helper.getRandom(AdTargetingOptions.Gender.MALE, AdTargetingOptions.Gender.FEMALE));
@@ -97,32 +97,28 @@ public final class AmazonAdNetwork extends AbsAdNetwork<AdLayout> implements AdL
 		return this;
 	}
 
-	
-	/////////////////////////////////////////////////////////
-	/////////////////////////////////////////////////////////
-	/////////////////////////////////////////////////////////
-	/////////////////////////////////////////////////////////
+    @Override
+    public void onAdLoaded(Ad ad, AdProperties adProperties) {
+        callback.onAdReceived(this, AdResult.Good);
+    }
 
-	@Override
-	public void onAdCollapsed(AdLayout ad) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void onAdFailedToLoad(Ad ad, AdError adError) {
+        callback.onAdReceived(this, AdResult.Bad.message(adError.getMessage()));
+    }
 
-	@Override
-	public void onAdExpanded(AdLayout ad) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void onAdExpanded(Ad ad) {
 
-	@Override
-	public void onAdFailedToLoad(AdLayout ad, AdError err) {
-		callback.onAdReceived(this, AdResult.Bad.message(err.getMessage()));
-	}
+    }
 
-	@Override
-	public void onAdLoaded(AdLayout ad, AdProperties prop) {
-		callback.onAdReceived(this, AdResult.Good);
-	}
+    @Override
+    public void onAdCollapsed(Ad ad) {
 
+    }
+
+    @Override
+    public void onAdDismissed(Ad ad) {
+
+    }
 }

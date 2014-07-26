@@ -1,6 +1,6 @@
 project.ext.set("archivesBaseName", "adnets-sample");
 
-apply plugin: 'android-library'
+apply plugin: 'com.android.application'
 
 dependencies {
     compile project(':Library')
