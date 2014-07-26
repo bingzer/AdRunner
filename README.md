@@ -12,19 +12,19 @@ Download
 ```gradle
 
     // main component
-    compile 'com.bingzer.android.ads:adrunner:0.0.5'
+    compile 'com.bingzer.android.ads:adrunner:1.0.1'
     
     // GoogleAds (was AdMob)
-    compile 'com.bingzer.android.ads:adnets-google-ads:0.0.5'
+    compile 'com.bingzer.android.ads:google:1.0.1'
     
     // Amazon
-    compile 'com.bingzer.android.ads:adnets-amazon:0.0.5'
+    compile 'com.bingzer.android.ads:amazon:1.0.1'
     
     // LeadBolt
-    compile 'com.bingzer.android.ads:adnets-leadbolt:0.0.5'
+    compile 'com.bingzer.android.ads:leadbolt:1.0.1'
     
     // Mobfox
-    compile 'com.bingzer.android.ads:adnets-mobfox:0.0.5'
+    compile 'com.bingzer.android.ads:mobfox:1.01'
     
 ```
 
