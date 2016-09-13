@@ -5,11 +5,6 @@ import android.util.Log;
 import com.bingzer.android.ads.utils.IOUtils;
 import com.bingzer.android.ads.utils.Timespan;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -20,8 +15,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
 
 /**
  * Ad distro.
@@ -106,18 +101,11 @@ class AdDistro implements IAdDistro{
     }
 
     private void httpGetDistroJson(File file){
-        HttpClient client = new DefaultHttpClient();
         try{
-            HttpGet get = new HttpGet(url);
-            HttpResponse response = client.execute(get);
-
-            Log.i(TAG, "HttpResponse: " + response.getStatusLine());
-            if(response.getStatusLine().getStatusCode() == HttpStatus.SC_OK){
-                IOUtils.copyFile(response.getEntity().getContent(), file);
-            }
-            else{
-                throw new IOException("Failed: " + response);
-            }
+            URL xurl = new URL(url);
+            HttpURLConnection conn = (HttpURLConnection) xurl.openConnection();
+            IOUtils.copyFile(conn.getInputStream(), file);
+            conn.disconnect();
         }
         catch (Throwable e){
             Log.e(TAG, "httpGetDistroJson", e);

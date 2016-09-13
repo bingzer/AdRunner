@@ -4,7 +4,7 @@ apply plugin: 'com.android.library'
 
 dependencies {
     compile project(':Library')
-    compile files('libs/amazon-ads-5.4.78.jar')
+    compile files('libs/amazon-ads-5.8.1.jar')
 }
 
 android {
@@ -12,7 +12,6 @@ android {
     buildToolsVersion project.VERSION_TOOLS
 
     defaultConfig {
-        applicationId "com.bingzer.android.ads.amazon"
         minSdkVersion Integer.parseInt(project.VERSION_SDK_MIN)
         targetSdkVersion Integer.parseInt(project.VERSION_SDK_TARGET)
         versionCode Integer.parseInt(project.VERSION_CODE)
