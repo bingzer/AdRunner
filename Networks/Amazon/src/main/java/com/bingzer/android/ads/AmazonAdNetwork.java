@@ -39,8 +39,6 @@ public final class AmazonAdNetwork extends AbsAdNetwork<AdLayout> implements AdL
                 adSize = AdSize.SIZE_AUTO;
                 break;
             case SIZE_300x50:
-                adSize = AdSize.SIZE_300x50;
-                break;
             case SIZE_320x50:
                 adSize = AdSize.SIZE_320x50;
                 break;
@@ -72,13 +70,11 @@ public final class AmazonAdNetwork extends AbsAdNetwork<AdLayout> implements AdL
 			else
                 AdRegistration.setAppKey(pubId);
             // auto size thing
-            adView = new AdLayout((Activity)context, adSize);
+            adView = new AdLayout(context, adSize);
 
 			adView.setListener(this);
 			adView.setLayoutParams(params());
 		}
-		ops.setGender(Helper.getRandom(AdTargetingOptions.Gender.MALE, AdTargetingOptions.Gender.FEMALE));
-		ops.setAge(Helper.getRandom(10, 50));
 
 		return adView;
 	}

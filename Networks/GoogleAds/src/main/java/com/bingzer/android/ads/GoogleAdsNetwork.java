@@ -22,7 +22,6 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.plus.model.people.Person;
 
 /**
  * AdMobSdkNetwork. This is the old way of doing things
@@ -85,9 +84,7 @@ public class GoogleAdsNetwork extends AbsAdNetwork<AdView> {
             adView.setAdSize(adSize);
         }
 
-        AdRequest.Builder requestBuilder =
-                new AdRequest.Builder()
-                        .setGender(Helper.getRandom(Person.Gender.FEMALE, Person.Gender.MALE));
+        AdRequest.Builder requestBuilder = new AdRequest.Builder();
         // load all keywords
         if(keywords != null){
             for(String keyword : keywords){
@@ -105,6 +102,7 @@ public class GoogleAdsNetwork extends AbsAdNetwork<AdView> {
         return adView;
     }
 
+    @SuppressWarnings("MissingPermission")
     @Override
     public IAdNetwork showAd(Callback callback) {
         this.callback = callback;
